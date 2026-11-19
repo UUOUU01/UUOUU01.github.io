@@ -1,0 +1,117 @@
+{
+  "repo": "UUOUU01/metrocal",
+  "releases": [
+    {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "name": "MetroCal 1.0.0",
+      "description": "Initial release with core calendar functionality",
+      "size": "45 MB",
+      "date": "2026-01-15",
+      "assets": [
+        {
+          "name": "metrocal-win64.zip",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.0.0/metrocal-win64.zip",
+          "type": "zip",
+          "size": "45 MB"
+        },
+        {
+          "name": "metrocal-macos.dmg",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.0.0/metrocal-macos.dmg",
+          "type": "dmg",
+          "size": "48 MB"
+        },
+        {
+          "name": "metrocal-linux.tar.gz",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.0.0/metrocal-linux.tar.gz",
+          "type": "tar.gz",
+          "size": "42 MB"
+        }
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "tag": "v1.1.0",
+      "name": "MetroCal 1.1.0",
+      "description": "Added dark mode support and improved performance",
+      "size": "46 MB",
+      "date": "2026-03-20",
+      "assets": [
+        {
+          "name": "metrocal-win64.zip",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.1.0/metrocal-win64.zip",
+          "type": "zip",
+          "size": "46 MB"
+        },
+        {
+          "name": "metrocal-macos.dmg",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.1.0/metrocal-macos.dmg",
+          "type": "dmg",
+          "size": "49 MB"
+        },
+        {
+          "name": "metrocal-linux.tar.gz",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.1.0/metrocal-linux.tar.gz",
+          "type": "tar.gz",
+          "size": "43 MB"
+        }
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "tag": "v1.2.0",
+      "name": "MetroCal 1.2.0",
+      "description": "New sync features and collaborative scheduling",
+      "size": "48 MB",
+      "date": "2026-06-10",
+      "assets": [
+        {
+          "name": "metrocal-win64.zip",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.2.0/metrocal-win64.zip",
+          "type": "zip",
+          "size": "48 MB"
+        },
+        {
+          "name": "metrocal-macos.dmg",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.2.0/metrocal-macos.dmg",
+          "type": "dmg",
+          "size": "51 MB"
+        },
+        {
+          "name": "metrocal-linux.tar.gz",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.2.0/metrocal-linux.tar.gz",
+          "type": "tar.gz",
+          "size": "45 MB"
+        }
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "tag": "v1.3.0",
+      "name": "MetroCal 1.3.0",
+      "description": "Enhanced UI with glassmorphism effects and smooth animations",
+      "size": "52 MB",
+      "date": "2026-09-01",
+      "assets": [
+        {
+          "name": "metrocal-win64.zip",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.3.0/metrocal-win64.zip",
+          "type": "zip",
+          "size": "52 MB"
+        },
+        {
+          "name": "metrocal-macos.dmg",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.3.0/metrocal-macos.dmg",
+          "type": "dmg",
+          "size": "55 MB"
+        },
+        {
+          "name": "metrocal-linux.tar.gz",
+          "url": "https://github.com/UUOUU01/metrocal/releases/download/v1.3.0/metrocal-linux.tar.gz",
+          "type": "tar.gz",
+          "size": "48 MB"
+        }
+      ]
+    }
+  ]
+}

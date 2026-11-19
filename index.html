@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UUOUU01 - Personal Website of Developer & Creator">
+  <title>UUOUU01</title>
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">UUOUU01</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#download" class="nav-link" data-i18n="nav_download">Download</a></li>
+      </ul>
+      <div class="nav-lang">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+        <button class="lang-btn" data-lang="ru">Русский</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-content reveal">
+        <h1 class="hero-title" data-i18n="hero_title">Building Digital Experiences</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">Developer & Creator</p>
+        <p class="hero-description" data-i18n="hero_desc">Open source developer crafting elegant, performant web applications with clean code and modern design.</p>
+        <div class="hero-actions">
+          <a href="#skills" class="btn btn-primary btn-large" data-i18n="hero_cta">Explore Projects</a>
+          <a href="#download" class="btn btn-secondary btn-large" data-i18n="hero_download">Download Tools</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg class="hero-icon" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FF6B35"/>
+              <stop offset="100%" style="stop-color:#1A237E"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <circle cx="140" cy="140" r="120" fill="url(#heroGradient)" opacity="0.1"/>
+          <circle cx="140" cy="140" r="100" fill="url(#heroGradient)" opacity="0.2"/>
+          <circle cx="140" cy="140" r="80" fill="url(#heroGradient)" opacity="0.3"/>
+          <g filter="url(#glow)">
+            <rect x="90" y="90" width="100" height="100" rx="20" stroke="url(#heroGradient)" stroke-width="3" fill="none"/>
+            <rect x="110" y="110" width="60" height="60" rx="10" stroke="url(#heroGradient)" stroke-width="2" fill="none"/>
+            <circle cx="140" cy="140" r="20" fill="url(#heroGradient)"/>
+          </g>
+          <rect x="100" y="100" width="80" height="80" rx="15" stroke="url(#heroGradient)" stroke-width="2" fill="none" opacity="0.5"/>
+          <rect x="120" y="120" width="40" height="40" rx="8" stroke="url(#heroGradient)" stroke-width="1" fill="none" opacity="0.3"/>
+          <path d="M140 60 L140 100 M100 140 L140 140 M140 180 L140 220 M180 140 L140 140 M60 140 L100 140 M180 100 L180 140 M180 180 L180 220 M100 220 L140 220 M180 220 L220 220" stroke="url(#heroGradient)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title" data-i18n="about_title">About Me</h2>
+        <p class="section-description" data-i18n="about_desc">Passionate developer focused on creating intuitive interfaces and robust backend systems. Specialized in modern web technologies.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <h3 data-i18n="about_content_title">Who I Am</h3>
+          <p data-i18n="about_content_p1">I'm a passionate developer with a strong foundation in computer science and extensive experience in software development. My journey started with a curiosity for how things work, which led me to explore programming and eventually fall in love with creating digital solutions.</p>
+          <p data-i18n="about_content_p2">I believe in writing clean, maintainable code and designing intuitive user experiences. Every project I work on is an opportunity to learn and improve, whether it's a small utility or a complex web application.</p>
+          <p data-i18n="about_content_p3">When I'm not coding, you'll find me contributing to open source projects, exploring new technologies, or sharing knowledge with the developer community.</p>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label" data-i18n="stat_years">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label" data-i18n="stat_projects">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-i18n="stat_commitment">Commitment</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">∞</div>
+            <div class="stat-label" data-i18n="stat_learning">Learning</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title" data-i18n="skills_title">Skills</h2>
+        <p class="section-description" data-i18n="skills_desc">Technologies and tools I work with to build amazing products.</p>
+      </div>
+      <div class="skills-container">
+        <div class="skill-card reveal stagger-1">
+          <svg class="skill-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="48" height="48" rx="8" fill="#FF6B35" opacity="0.2"/>
+            <rect x="12" y="12" width="40" height="40" rx="6" stroke="#FF6B35" stroke-width="2" fill="none"/>
+            <circle cx="32" cy="32" r="12" fill="#FF6B35"/>
+            <circle cx="32" cy="32" r="4" fill="white"/>
+          </svg>
+          <h3 class="skill-title" data-i18n="skills_frontend">Frontend</h3>
+          <ul class="skill-list">
+            <li data-i18n="skill_html">HTML5 & CSS3</li>
+            <li data-i18n="skill_js">JavaScript / TypeScript</li>
+            <li data-i18n="skill_react">React / Vue</li>
+            <li data-i18n="skill_animations">CSS Animations</li>
+            <li data-i18n="skill_svg">Native SVG</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal stagger-2">
+          <svg class="skill-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="48" height="48" rx="8" fill="#1A237E" opacity="0.2"/>
+            <rect x="12" y="12" width="40" height="40" rx="6" stroke="#1A237E" stroke-width="2" fill="none"/>
+            <path d="M20 48 L20 24 L32 16 L44 24 L44 48" stroke="#1A237E" stroke-width="2" fill="none"/>
+            <path d="M20 32 L32 24 L44 32" stroke="#1A237E" stroke-width="2" fill="none"/>
+          </svg>
+          <h3 class="skill-title" data-i18n="skills_backend">Backend</h3>
+          <ul class="skill-list">
+            <li data-i18n="skill_node">Node.js</li>
+            <li data-i18n="skill_python">Python</li>
+            <li data-i18n="skill_postgres">PostgreSQL</li>
+            <li data-i18n="skill_mongodb">MongoDB</li>
+            <li data-i18n="skill_api">REST APIs</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal stagger-3">
+          <svg class="skill-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="48" height="48" rx="8" fill="#FF6B35" opacity="0.2"/>
+            <rect x="12" y="12" width="40" height="40" rx="6" stroke="#FF6B35" stroke-width="2" fill="none"/>
+            <rect x="16" y="16" width="32" height="32" rx="4" stroke="#FF6B35" stroke-width="2" fill="none"/>
+            <rect x="20" y="20" width="10" height="10" fill="#1A237E"/>
+            <rect x="34" y="20" width="10" height="10" fill="#1A237E"/>
+            <rect x="20" y="34" width="10" height="10" fill="#1A237E"/>
+            <rect x="34" y="34" width="10" height="10" fill="#1A237E"/>
+          </svg>
+          <h3 class="skill-title" data-i18n="skills_tools">Tools</h3>
+          <ul class="skill-list">
+            <li data-i18n="skill_git">Git & GitHub</li>
+            <li data-i18n="skill_docker">Docker</li>
+            <li data-i18n="skill_ci_cd">CI/CD</li>
+            <li data-i18n="skill_testing">Testing</li>
+            <li data-i18n="skill_agile">Agile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="section" id="download">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title" data-i18n="download_title">Downloads</h2>
+        <p class="section-description" data-i18n="download_desc">Access my open source projects and tools</p>
+      </div>
+      <div class="download-grid">
+        <div class="download-header reveal">
+          <h2 data-i18n="download_header">MetroCal</h2>
+          <p data-i18n="download_header_desc">Advanced calendar application with beautiful UI and powerful features</p>
+        </div>
+        <div class="download-item reveal stagger-1">
+          <div class="download-info">
+            <h3 class="download-name" data-i18n="download_version">Version 1.3.0</h3>
+            <p class="download-desc" data-i18n="download_version_desc">Enhanced UI with glassmorphism effects and smooth animations</p>
+            <div class="download-meta">
+              <div>
+                <div class="meta-label" data-i18n="download_size">Size</div>
+                <div class="meta-value">52 MB</div>
+              </div>
+              <div>
+                <div class="meta-label" data-i18n="download_date">Released</div>
+                <div class="meta-value">2026-09-01</div>
+              </div>
+              <div>
+                <div class="meta-label" data-i18n="download_platforms">Platforms</div>
+                <div class="meta-value">Windows, macOS, Linux</div>
+              </div>
+            </div>
+          </div>
+          <div class="download-actions">
+            <button class="download-btn download-btn-primary" data-download="win64">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Windows
+            </button>
+            <button class="download-btn download-btn-secondary" data-download="macos">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
+                <line x1="12" y1="2" x2="12" y2="12"/>
+              </svg>
+              macOS
+            </button>
+            <button class="download-btn download-btn-secondary" data-download="linux">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+              </svg>
+              Linux
+            </button>
+          </div>
+        </div>
+        <div class="download-item reveal stagger-2">
+          <div class="download-info">
+            <h3 class="download-name" data-i18n="download_version_older">Version 1.2.0</h3>
+            <p class="download-desc" data-i18n="download_version_desc_older">New sync features and collaborative scheduling</p>
+            <div class="download-meta">
+              <div>
+                <div class="meta-label" data-i18n="download_size">Size</div>
+                <div class="meta-value">48 MB</div>
+              </div>
+              <div>
+                <div class="meta-label" data-i18n="download_date">Released</div>
+                <div class="meta-value">2026-06-10</div>
+              </div>
+              <div>
+                <div class="meta-label" data-i18n="download_platforms">Platforms</div>
+                <div class="meta-value">Windows, macOS, Linux</div>
+              </div>
+            </div>
+          </div>
+          <div class="download-actions">
+            <button class="download-btn download-btn-primary" data-download="win64-older">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Windows
+            </button>
+            <button class="download-btn download-btn-secondary" data-download="macos-older">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
+                <line x1="12" y1="2" x2="12" y2="12"/>
+              </svg>
+              macOS
+            </button>
+            <button class="download-btn download-btn-secondary" data-download="linux-older">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+              </svg>
+              Linux
+            </button>
+          </div>
+        </div>
+        <div class="download-item reveal stagger-3">
+          <div class="download-info">
+            <h3 class="download-name" data-i18n="download_version_older_2">Version 1.1.0</h3>
+            <p class="download-desc" data-i18n="download_version_desc_older_2">Added dark mode support and improved performance</p>
+            <div class="download-meta">
+              <div>
+                <div class="meta-label" data-i18n="download_size">Size</div>
+                <div class="meta-value">46 MB</div>
+              </div>
+              <div>
+                <div class="meta-label" data-i18n="download_date">Released</div>
+                <div class="meta-value">2026-03-20</div>
+              </div>
+              <div>
+                <div class="meta-label" data-i18n="download_platforms">Platforms</div>
+                <div class="meta-value">Windows, macOS, Linux</div>
+              </div>
+            </div>
+          </div>
+          <div class="download-actions">
+            <button class="download-btn download-btn-primary" data-download="win64-older2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Windows
+            </button>
+            <button class="download-btn download-btn-secondary" data-download="macos-older2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
+                <line x1="12" y1="2" x2="12" y2="12"/>
+              </svg>
+              macOS
+            </button>
+            <button class="download-btn download-btn-secondary" data-download="linux-older2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+              </svg>
+              Linux
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <ul class="footer-links">
+        <li><a href="https://github.com/UUOUU01" target="_blank" class="footer-link" data-i18n="footer_github">GitHub</a></li>
+        <li><a href="mailto:contact@uuouu01.dev" class="footer-link" data-i18n="footer_email">Email</a></li>
+      </ul>
+      <p class="footer-copyright" data-i18n="footer_copyright">© 2026 UUOUU01. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
