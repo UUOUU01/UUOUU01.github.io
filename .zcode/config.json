@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "enabledPlugins": {
+      "zcode-community-retry@tangyixiao-zcode-community": true,
+      "zcode-retry-keeper@tangyixiao-zcode-community": true
+    }
+  }
+}
