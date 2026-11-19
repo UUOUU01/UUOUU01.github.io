@@ -25,21 +25,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: var(--font-h1);
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--font-h2);
   letter-spacing: -0.01em;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: var(--font-h3);
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: var(--font-h4);
 }
 
 p {
@@ -59,9 +59,9 @@ a:hover {
 
 /* Container */
 .container {
-  max-width: 1200px;
+  max-width: var(--spacing-xl) * 10;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--spacing-md);
 }
 
 /* Navigation */
@@ -71,7 +71,7 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 16px 0;
+  padding: var(--spacing-sm) 0;
   transition: all var(--transition-base);
 }
 
@@ -89,14 +89,14 @@ a:hover {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
+  font-size: var(--font-h4);
   font-weight: 700;
   color: var(--color-text-main);
 }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: var(--spacing-lg);
   list-style: none;
 }
 
@@ -130,7 +130,7 @@ a:hover {
 
 .nav-lang {
   display: flex;
-  gap: 8px;
+  gap: var(--spacing-xs);
 }
 
 .lang-btn {
@@ -156,7 +156,7 @@ a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 0 60px;
+  padding: var(--spacing-xl) 0 var(--spacing-xxl);
   background: linear-gradient(135deg,
     var(--color-bg-primary) 0%,
     var(--color-bg-tertiary) 100%);
@@ -281,7 +281,7 @@ a:hover {
 
 /* Section */
 .section {
-  padding: 100px 0;
+  padding: var(--spacing-xxl) 0;
 }
 
 .section-header {
