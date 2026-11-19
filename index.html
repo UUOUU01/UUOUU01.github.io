@@ -10,10 +10,26 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
+  <!-- Page Load Overlay -->
+  <div id="page-load" class="page-load-overlay">
+    <div class="loader">
+      <svg class="animate-morph" width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="35" fill="none" stroke="url(#heroGradient)" stroke-width="3"/>
+        <circle cx="40" cy="40" r="20" fill="url(#heroGradient)" opacity="0.5"/>
+        <defs>
+          <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF6B35"/>
+            <stop offset="100%" style="stop-color:#1A237E"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#" class="nav-logo">UUOUU01</a>
+      <a href="#" class="nav-logo" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">UUOUU01</a>
       <ul class="nav-links">
         <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
         <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
@@ -32,7 +48,7 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container hero-inner">
-      <div class="hero-content reveal">
+      <div class="hero-content page-load">
         <h1 class="hero-title" data-i18n="hero_title">Building Digital Experiences</h1>
         <p class="hero-subtitle" data-i18n="hero_subtitle">Developer & Creator</p>
         <p class="hero-description" data-i18n="hero_desc">Open source developer crafting elegant, performant web applications with clean code and modern design.</p>
@@ -41,46 +57,18 @@
           <a href="#download" class="btn btn-secondary btn-large" data-i18n="hero_download">Download Tools</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <svg class="hero-icon" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#FF6B35"/>
-              <stop offset="100%" style="stop-color:#1A237E"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          <circle cx="140" cy="140" r="120" fill="url(#heroGradient)" opacity="0.1"/>
-          <circle cx="140" cy="140" r="100" fill="url(#heroGradient)" opacity="0.2"/>
-          <circle cx="140" cy="140" r="80" fill="url(#heroGradient)" opacity="0.3"/>
-          <g filter="url(#glow)">
-            <rect x="90" y="90" width="100" height="100" rx="20" stroke="url(#heroGradient)" stroke-width="3" fill="none"/>
-            <rect x="110" y="110" width="60" height="60" rx="10" stroke="url(#heroGradient)" stroke-width="2" fill="none"/>
-            <circle cx="140" cy="140" r="20" fill="url(#heroGradient)"/>
-          </g>
-          <rect x="100" y="100" width="80" height="80" rx="15" stroke="url(#heroGradient)" stroke-width="2" fill="none" opacity="0.5"/>
-          <rect x="120" y="120" width="40" height="40" rx="8" stroke="url(#heroGradient)" stroke-width="1" fill="none" opacity="0.3"/>
-          <path d="M140 60 L140 100 M100 140 L140 140 M140 180 L140 220 M180 140 L140 140 M60 140 L100 140 M180 100 L180 140 M180 180 L180 220 M100 220 L140 220 M180 220 L220 220" stroke="url(#heroGradient)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-        </svg>
-      </div>
     </div>
   </section>
 
   <!-- Skills Section -->
   <section class="section" id="skills">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header page-load stagger-1">
         <h2 class="section-title" data-i18n="skills_title">Skills</h2>
         <p class="section-description" data-i18n="skills_desc">Technologies and tools I work with to build amazing products.</p>
       </div>
       <div class="skills-container">
-        <div class="skill-card reveal stagger-1">
+        <div class="skill-card page-load stagger-2">
           <svg class="skill-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="8" y="8" width="48" height="48" rx="8" fill="#FF6B35" opacity="0.2"/>
             <rect x="12" y="12" width="40" height="40" rx="6" stroke="#FF6B35" stroke-width="2" fill="none"/>
@@ -102,19 +90,19 @@
   <!-- Download Section -->
   <section class="section" id="download">
     <div class="container">
-      <div class="section-header reveal">
+      <div class="section-header page-load stagger-3">
         <h2 class="section-title" data-i18n="download_title">Downloads</h2>
         <p class="section-description" data-i18n="download_desc">Access my open source projects and tools</p>
       </div>
       <div class="download-grid">
-        <div class="download-header reveal">
+        <div class="download-header page-load stagger-4">
           <h2 data-i18n="download_header">MetroCal</h2>
           <p data-i18n="download_header_desc">Advanced calendar application with beautiful UI and powerful features</p>
         </div>
-        <div class="download-item reveal stagger-1">
+        <div class="download-item page-load stagger-5">
           <div class="download-info">
-            <h3 class="download-name" data-i18n="download_version">Version 1.3.0</h3>
-            <p class="download-desc" data-i18n="download_version_desc">Enhanced UI with glassmorphism effects and smooth animations</p>
+            <h3 class="download-name" data-i18n="download_version">Version 1.0.3</h3>
+            <p class="download-desc" data-i18n="download_version_desc">Latest version with bug fixes and improvements</p>
             <div class="download-meta">
               <div>
                 <div class="meta-label" data-i18n="download_size">Size</div>
@@ -154,7 +142,7 @@
             </button>
           </div>
         </div>
-        <div class="download-item reveal stagger-2">
+        <div class="download-item page-load stagger-6">
           <div class="download-info">
             <h3 class="download-name" data-i18n="download_version_older">Version 1.0.0</h3>
             <p class="download-desc" data-i18n="download_version_desc_older">Initial release with core calendar functionality</p>

@@ -16,6 +16,7 @@ class App {
     await this.setupManagers();
     this.setupEventListeners();
     this.checkDarkMode();
+    this.handlePageLoad();
   }
 
   async setupManagers() {
@@ -81,6 +82,25 @@ class App {
     if (localStorage.getItem('darkMode') === 'true') {
       document.documentElement.classList.add('dark-mode');
     }
+  }
+
+  handlePageLoad() {
+    const overlay = document.getElementById('page-load');
+    const pageLoadElements = document.querySelectorAll('.page-load');
+
+    // Hide overlay after animations complete
+    setTimeout(() => {
+      if (overlay) {
+        overlay.classList.add('hidden');
+      }
+
+      // Activate all page load elements
+      pageLoadElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('active');
+        }, index * 100);
+      });
+    }, 900);
   }
 }
 
