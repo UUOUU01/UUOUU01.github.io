@@ -1,0 +1,35 @@
+// Small JSON config loader with graceful failure (file:// safe)
+export async function loadJSON(path, fallback = null) {
+  try {
+    const res = await fetch(path, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`${res.status} ${path}`);
+    return await res.json();
+  } catch (err) {
+    console.warn(`[config] ${path} unavailable, using fallback`, err.message);
+    return fallback;
+  }
+}
+
+// Project id = config file name: aaa.json -> "aaa"
+// Discovery: GitHub API lists config/download/ dir; falls back to index.json "fallback" list.
+export async function discoverProjects(sourceDir) {
+  const index = await loadJSON(`${sourceDir}/index.json`, { fallback: [] });
+
+  if (index.repo) {
+    try {
+      const api = `https://api.github.com/repos/${index.repo}/contents/${sourceDir}`;
+      const res = await fetch(api);
+      if (res.ok) {
+        const files = await res.json();
+        const ids = files
+          .filter(f => f.name.endsWith('.json') && f.name !== 'index.json')
+          .map(f => f.name.replace(/\.json$/, ''));
+        if (ids.length) return ids;
+      }
+    } catch (err) {
+      console.warn('[config] GitHub API listing failed, using fallback list');
+    }
+  }
+
+  return index.fallback || [];
+}

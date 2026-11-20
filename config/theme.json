@@ -1,71 +1,22 @@
 {
   "colors": {
-    "primary": "#FF6B35",
-    "primaryDark": "#E55A2B",
-    "primaryLight": "#FF8A5E",
-    "accent": "#1A237E",
-    "accentLight": "#3F51B5",
-    "accentDark": "#0D1442",
-    "textMain": "#121212",
-    "textSecondary": "#616161",
-    "textMuted": "#9E9E9E",
-    "bgPrimary": "#FAFAFA",
-    "bgSecondary": "#FFFFFF",
-    "bgTertiary": "#F5F5F5",
-    "border": "#E0E0E0",
-    "glassBg": "rgba(255, 255, 255, 0.7)",
-    "glassBorder": "rgba(255, 255, 255, 0.3)"
+    "orange": "#FF7A3D",
+    "orangeDark": "#E8601F",
+    "orangeLight": "#FFA05C",
+    "sky": "#38BDF8",
+    "skyDeep": "#0EA5E9",
+    "skySoft": "#BAE6FD",
+    "bgPage": "#F5F7FA",
+    "bgLight": "#FFFFFF",
+    "bgDarkBlock": "#101418",
+    "bgDarkBlockAlt": "#171E26",
+    "textMain": "#16212B",
+    "textOnDark": "#F2F7FB",
+    "textSecondary": "#5A6B7A"
   },
-  "darkModeColors": {
-    "textMain": "#FFFFFF",
-    "textSecondary": "#B0B0B0",
-    "textMuted": "#808080",
-    "bgPrimary": "#0A0A0A",
-    "bgSecondary": "#121212",
-    "bgTertiary": "#1E1E1E",
-    "border": "#333333",
-    "glassBg": "rgba(18, 18, 18, 0.7)",
-    "glassBorder": "rgba(255, 255, 255, 0.1)"
+  "font": {
+    "family": "'Segoe UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif"
   },
-  "spacing": {
-    "xs": "8px",
-    "sm": "16px",
-    "md": "24px",
-    "lg": "32px",
-    "xl": "48px",
-    "xxl": "60px"
-  },
-  "borderRadius": {
-    "sm": "8px",
-    "md": "12px",
-    "lg": "16px",
-    "xl": "24px"
-  },
-  "shadows": {
-    "sm": "0 2px 8px rgba(0, 0, 0, 0.08)",
-    "md": "0 4px 16px rgba(0, 0, 0, 0.12)",
-    "lg": "0 8px 32px rgba(0, 0, 0, 0.15)",
-    "glow": "0 0 20px rgba(255, 107, 53, 0.4)"
-  },
-  "animations": {
-    "fast": "0.15s ease",
-    "base": "0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-    "slow": "0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-  },
-  "fonts": {
-    "family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-    "sizes": {
-      "h1": "clamp(2.5rem, 5vw, 4rem)",
-      "h2": "clamp(2rem, 4vw, 3rem)",
-      "h3": "clamp(1.5rem, 3vw, 2rem)",
-      "h4": "1.25rem",
-      "body": "1rem"
-    }
-  },
-  "breakpoints": {
-    "sm": "640px",
-    "md": "768px",
-    "lg": "968px",
-    "xl": "1200px"
-  }
+  "radius": { "pill": "980px", "card": "18px" },
+  "motion": { "reveal": "0.8s", "hover": "0.25s" }
 }

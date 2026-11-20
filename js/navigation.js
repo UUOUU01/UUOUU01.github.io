@@ -1,55 +1,44 @@
+// Nav + hero behaviors: smooth scroll for anchor links, IntersectionObserver
+// for any .reveal outside rendered projects (hero etc.), page-load sequence.
 export class Navigation {
   constructor() {
-    this.nav = document.getElementById('nav');
-    this.init();
+    this.bindSmoothScroll();
+    this.observeReveals();
   }
 
-  init() {
-    this.setupScrollEffect();
-    this.setupMobileMenu();
-  }
-
-  setupScrollEffect() {
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 50) {
-        this.nav.classList.add('scrolled');
-      } else {
-        this.nav.classList.remove('scrolled');
-      }
-
-      lastScroll = currentScroll;
+  bindSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
   }
 
-  setupMobileMenu() {
-    // Mobile menu toggle can be added here if needed
-    // For now, we're keeping it simple with responsive CSS
+  observeReveals() {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
+}
 
-  scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
+// Page load: hide loader, then play the 0.8s blur-in cascade on hero content.
+export function playPageLoad() {
+  const overlay = document.getElementById('page-load');
+  const items = document.querySelectorAll('.page-load');
 
-  getCurrentSection() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPosition = window.pageYOffset + 100;
-
-    for (const section of sections) {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        return section.getAttribute('id');
-      }
-    }
-
-    return 'home';
-  }
+  setTimeout(() => {
+    overlay?.classList.add('hidden');
+    items.forEach((el, i) => setTimeout(() => el.classList.add('active'), i * 90));
+  }, 700);
 }

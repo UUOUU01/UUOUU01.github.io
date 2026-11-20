@@ -3,37 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="UUOUU01 - Personal Website of Developer & Creator">
+  <meta name="description" content="UUOUU01 - Personal website. Open source projects and downloads.">
   <title>UUOUU01</title>
   <link rel="stylesheet" href="css/themes.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <!-- Page Load Overlay -->
+  <!-- Loader -->
   <div id="page-load" class="page-load-overlay">
-    <div class="loader">
-      <svg class="animate-morph" width="80" height="80" viewBox="0 0 80 80">
-        <circle cx="40" cy="40" r="35" fill="none" stroke="url(#heroGradient)" stroke-width="3"/>
-        <circle cx="40" cy="40" r="20" fill="url(#heroGradient)" opacity="0.5"/>
-        <defs>
-          <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#FF6B35"/>
-            <stop offset="100%" style="stop-color:#1A237E"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
+    <span class="loader-dot is-orange"></span>
+    <span class="loader-dot is-sky"></span>
   </div>
 
-  <!-- Navigation -->
+  <!-- Frosted nav -->
   <nav class="nav" id="nav">
-    <div class="container nav-inner">
-      <a href="#" class="nav-logo" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">UUOUU01</a>
-      <ul class="nav-links">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand" data-i18n="brand">UUOUU01</a>
+      <ul class="nav-menu">
         <li><a href="#home" class="nav-link" data-i18n="nav_home">Home</a></li>
-        <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
-        <li><a href="#download" class="nav-link" data-i18n="nav_download">Download</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="https://github.com/UUOUU01" target="_blank" rel="noopener" class="nav-link" data-i18n="nav_github">GitHub</a></li>
       </ul>
       <div class="nav-lang">
         <button class="lang-btn active" data-lang="en">EN</button>
@@ -45,157 +35,50 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="home">
+    <span class="hero-orb orb-orange"></span>
+    <span class="hero-orb orb-sky"></span>
     <div class="container hero-inner">
-      <div class="hero-content page-load">
-        <h1 class="hero-title" data-i18n="hero_title">Building Digital Experiences</h1>
-        <p class="hero-subtitle" data-i18n="hero_subtitle">Developer & Creator</p>
-        <p class="hero-description" data-i18n="hero_desc">Open source developer crafting elegant, performant web applications with clean code and modern design.</p>
-        <div class="hero-actions">
-          <a href="#skills" class="btn btn-primary btn-large" data-i18n="hero_cta">Explore Projects</a>
-          <a href="#download" class="btn btn-secondary btn-large" data-i18n="hero_download">Download Tools</a>
-        </div>
+      <h1 class="hero-title page-load" data-i18n="hero_title">Building Digital Experiences</h1>
+      <p class="hero-sub page-load stagger-1" data-i18n="hero_sub">UUOUU01</p>
+      <p class="hero-desc page-load stagger-2" data-i18n="hero_desc">Open source projects, built with clean code and modern design.</p>
+      <div class="hero-actions page-load stagger-3">
+        <a href="#projects" class="btn btn-orange" data-i18n="hero_cta">Explore Projects</a>
+        <a href="https://github.com/UUOUU01" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="hero_github">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="section-header page-load stagger-1">
-        <h2 class="section-title" data-i18n="skills_title">Skills</h2>
-        <p class="section-description" data-i18n="skills_desc">Technologies and tools I work with to build amazing products.</p>
-      </div>
-      <div class="skills-container">
-        <div class="skill-card page-load stagger-2">
-          <svg class="skill-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="8" width="48" height="48" rx="8" fill="#FF6B35" opacity="0.2"/>
-            <rect x="12" y="12" width="40" height="40" rx="6" stroke="#FF6B35" stroke-width="2" fill="none"/>
-            <path d="M16 48 L16 16 L48 16 L48 48 Z" stroke="#FF6B35" stroke-width="2" fill="none"/>
-            <path d="M24 24 L40 24 M24 32 L40 32 M24 40 L32 40" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <h3 class="skill-title" data-i18n="skills_programming">Programming</h3>
-          <ul class="skill-list">
-            <li data-i18n="skill_c">C / C++</li>
-            <li data-i18n="skill_js">JavaScript</li>
-            <li data-i18n="skill_python">Python</li>
-            <li data-i18n="skill_node">Node.js</li>
-          </ul>
+  <!-- Projects (rendered from config/download/*.json; static fallback below) -->
+  <main id="projects-root">
+    <section class="project-block is-dark" id="projects">
+      <div class="container">
+        <p class="project-kicker reveal" data-i18n="projects_kicker">Open Source</p>
+        <h2 class="project-title reveal stagger-1">MetroCal</h2>
+        <p class="project-tagline reveal stagger-2" data-i18n="metrocal_tagline">Calendar app with a modern face.</p>
+        <p class="project-desc reveal stagger-3" data-i18n="metrocal_desc">A calendar application project. Grab the latest build from the releases page.</p>
+        <div class="project-actions reveal stagger-4">
+          <a href="https://github.com/UUOUU01/metrocal/releases" target="_blank" rel="noopener" class="btn btn-orange">
+            <span data-i18n="btn_release">Release</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="https://github.com/UUOUU01/metrocal" target="_blank" rel="noopener" class="btn btn-ghost">
+            <span data-i18n="btn_repo">Repository</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Download Section -->
-  <section class="section" id="download">
-    <div class="container">
-      <div class="section-header page-load stagger-3">
-        <h2 class="section-title" data-i18n="download_title">Downloads</h2>
-        <p class="section-description" data-i18n="download_desc">Access my open source projects and tools</p>
-      </div>
-      <div class="download-grid">
-        <div class="download-header page-load stagger-4">
-          <h2 data-i18n="download_header">MetroCal</h2>
-          <p data-i18n="download_header_desc">Advanced calendar application with beautiful UI and powerful features</p>
-        </div>
-        <div class="download-item page-load stagger-5">
-          <div class="download-info">
-            <h3 class="download-name" data-i18n="download_version">Version 1.0.3</h3>
-            <p class="download-desc" data-i18n="download_version_desc">Latest version with bug fixes and improvements</p>
-            <div class="download-meta">
-              <div>
-                <div class="meta-label" data-i18n="download_size">Size</div>
-                <div class="meta-value">52 MB</div>
-              </div>
-              <div>
-                <div class="meta-label" data-i18n="download_date">Released</div>
-                <div class="meta-value">2026-09-01</div>
-              </div>
-              <div>
-                <div class="meta-label" data-i18n="download_platforms">Platforms</div>
-                <div class="meta-value">Windows, macOS, Linux</div>
-              </div>
-            </div>
-          </div>
-          <div class="download-actions">
-            <button class="download-btn download-btn-primary" data-download="win64">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              Windows
-            </button>
-            <button class="download-btn download-btn-secondary" data-download="macos">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
-                <line x1="12" y1="2" x2="12" y2="12"/>
-              </svg>
-              macOS
-            </button>
-            <button class="download-btn download-btn-secondary" data-download="linux">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
-              </svg>
-              Linux
-            </button>
-          </div>
-        </div>
-        <div class="download-item page-load stagger-6">
-          <div class="download-info">
-            <h3 class="download-name" data-i18n="download_version_older">Version 1.0.0</h3>
-            <p class="download-desc" data-i18n="download_version_desc_older">Initial release with core calendar functionality</p>
-            <div class="download-meta">
-              <div>
-                <div class="meta-label" data-i18n="download_size">Size</div>
-                <div class="meta-value">45 MB</div>
-              </div>
-              <div>
-                <div class="meta-label" data-i18n="download_date">Released</div>
-                <div class="meta-value">2026-01-15</div>
-              </div>
-              <div>
-                <div class="meta-label" data-i18n="download_platforms">Platforms</div>
-                <div class="meta-value">Windows, macOS, Linux</div>
-              </div>
-            </div>
-          </div>
-          <div class="download-actions">
-            <button class="download-btn download-btn-primary" data-download="win64-older">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              Windows
-            </button>
-            <button class="download-btn download-btn-secondary" data-download="macos-older">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
-                <line x1="12" y1="2" x2="12" y2="12"/>
-              </svg>
-              macOS
-            </button>
-            <button class="download-btn download-btn-secondary" data-download="linux-older">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
-              </svg>
-              Linux
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
+    <div class="container">
       <ul class="footer-links">
-        <li><a href="https://github.com/UUOUU01" target="_blank" class="footer-link" data-i18n="footer_github">GitHub</a></li>
+        <li><a href="https://github.com/UUOUU01" target="_blank" rel="noopener" class="footer-link" data-i18n="footer_github">GitHub</a></li>
+        <li><a href="https://github.com/UUOUU01/metrocal/releases" target="_blank" rel="noopener" class="footer-link" data-i18n="footer_releases">Releases</a></li>
       </ul>
-      <p class="footer-copyright" data-i18n="footer_copyright">© 2026 UUOUU01. All rights reserved.</p>
+      <p class="footer-copy" data-i18n="footer_copy">© 2026 UUOUU01. All rights reserved.</p>
     </div>
   </footer>
 

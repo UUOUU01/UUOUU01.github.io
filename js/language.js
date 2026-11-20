@@ -1,66 +1,55 @@
+import { loadJSON } from './config.js';
+
+// Applies translations; fires an animation on content refresh so the
+// switch itself feels alive (0.8s blur-in burst).
 export class LanguageManager {
   constructor() {
-    this.currentLang = localStorage.getItem('language') || 'en';
-    this.translations = {};
-    this.init();
+    this.current = localStorage.getItem('lang') || 'en';
+    this.dict = {};
   }
 
   async init() {
-    await this.loadTranslations();
-    this.applyLanguage();
-  }
-
-  loadTranslations() {
-    return fetch('config/locales.json')
-      .then(response => response.json())
-      .then(data => {
-        this.translations = data;
-      })
-      .catch(error => {
-        console.error('Failed to load translations:', error);
-        this.translations = this.getDefaultTranslations();
-      });
-  }
-
-  getDefaultTranslations() {
-    return {
-      en: {},
-      zh: {},
-      ja: {},
-      ru: {},
-      fr: {}
-    };
-  }
-
-  setLanguage(lang) {
-    if (this.translations[lang]) {
-      this.currentLang = lang;
-      localStorage.setItem('language', lang);
-      this.applyLanguage();
-      this.updateLanguageButtons();
-    }
-  }
-
-  applyLanguage() {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-      const key = el.dataset.i18n;
-      if (this.translations[this.currentLang] && this.translations[this.currentLang][key]) {
-        el.textContent = this.translations[this.currentLang][key];
-      }
-    });
-  }
-
-  updateLanguageButtons() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.remove('active');
-      if (btn.dataset.lang === this.currentLang) {
-        btn.classList.add('active');
-      }
-    });
+    this.dict = await loadJSON('config/locales.json', {});
+    this.apply();
   }
 
   t(key) {
-    return this.translations[this.currentLang]?.[key] || key;
+    return this.dict[this.current]?.[key] ?? this.dict.en?.[key] ?? '';
+  }
+
+  setLanguage(lang) {
+    if (!this.dict[lang]) return;
+    this.current = lang;
+    localStorage.setItem('lang', lang);
+    this.apply(true);
+  }
+
+  apply(animate = false) {
+    const root = document.body;
+    root.lang = this.current;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const val = this.t(el.dataset.i18n);
+      if (val) el.textContent = val;
+    });
+
+    document.title = this.t('page_title') || document.title;
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === this.current);
+    });
+
+    if (animate) {
+      const targets = document.querySelectorAll(
+        '.hero-title, .hero-sub, .hero-desc, .hero-actions, .project-title, .project-tagline, .project-desc, .project-kicker'
+      );
+      targets.forEach((el, i) => {
+        el.classList.remove('content-burst');
+        // force reflow so the animation replays
+        void el.offsetWidth;
+        el.style.animationDelay = `${i * 0.06}s`;
+        el.classList.add('content-burst');
+      });
+    }
   }
 }

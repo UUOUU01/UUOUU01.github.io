@@ -1,0 +1,10 @@
+{
+  "brand": "UUOUU01",
+  "github": "https://github.com/UUOUU01",
+  "nav": ["home", "projects"],
+  "sections": [
+    { "id": "home", "type": "hero" },
+    { "id": "projects", "type": "projects", "source": "config/download" }
+  ],
+  "footer": { "showGitHub": true }
+}

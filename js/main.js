@@ -1,106 +1,26 @@
 import { LanguageManager } from './language.js';
-import { Navigation } from './navigation.js';
-import { ScrollAnimations } from './scroll-animations.js';
-import { DownloadManager } from './download.js';
+import { ProjectsRenderer } from './projects.js';
+import { Navigation, playPageLoad } from './navigation.js';
 
 class App {
   constructor() {
-    this.languageManager = null;
-    this.navigation = null;
-    this.scrollAnimations = null;
-    this.downloadManager = null;
+    this.language = new LanguageManager();
+    this.projects = new ProjectsRenderer(this.language);
     this.init();
   }
 
   async init() {
-    await this.setupManagers();
-    this.setupEventListeners();
-    this.checkDarkMode();
-    this.handlePageLoad();
+    new Navigation();
+    await this.language.init();
+    await this.projects.init();
+    this.bindLangButtons();
+    playPageLoad();
   }
 
-  async setupManagers() {
-    this.languageManager = new LanguageManager();
-    this.navigation = new Navigation();
-    this.scrollAnimations = new ScrollAnimations();
-
-    // Only initialize download manager on download page
-    if (window.location.pathname === '/download.html' ||
-        window.location.pathname.endsWith('/download.html')) {
-      this.downloadManager = new DownloadManager();
-    }
-  }
-
-  setupEventListeners() {
-    // Language buttons
+  bindLangButtons() {
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.dataset.lang;
-        this.languageManager.setLanguage(lang);
-      });
+      btn.addEventListener('click', () => this.language.setLanguage(btn.dataset.lang));
     });
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Intersection Observer for scroll animations
-    this.setupScrollObserver();
-  }
-
-  setupScrollObserver() {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-    });
-  }
-
-  checkDarkMode() {
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.documentElement.classList.add('dark-mode');
-    }
-  }
-
-  handlePageLoad() {
-    const overlay = document.getElementById('page-load');
-    const pageLoadElements = document.querySelectorAll('.page-load');
-
-    // Hide overlay after animations complete
-    setTimeout(() => {
-      if (overlay) {
-        overlay.classList.add('hidden');
-      }
-
-      // Activate all page load elements
-      pageLoadElements.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add('active');
-        }, index * 100);
-      });
-    }, 900);
   }
 }
 
