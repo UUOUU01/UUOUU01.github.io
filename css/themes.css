@@ -20,6 +20,11 @@
   --glass-border: rgba(22, 33, 43, 0.08);
   --glass-dark-bg: rgba(16, 20, 24, 0.72);
 
+  /* Hero ambient glows (dimmed in dark mode) */
+  --hero-glow-sky: rgba(56, 189, 248, 0.16);
+  --hero-glow-orange: rgba(255, 122, 61, 0.14);
+  --orb-opacity: 0.5;
+
   --radius-pill: 980px;
   --radius-card: 18px;
 
@@ -28,9 +33,41 @@
   --shadow-orange: 0 8px 28px rgba(255, 122, 61, 0.45);
   --shadow-sky: 0 8px 28px rgba(56, 189, 248, 0.45);
 
-  /* Font stack: Microsoft YaHei & friends, generic sans-serif last */
-  --font-main: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Font pairing: display for headlines, body for reading, mono for accents.
+     Chinese/Japanese fallbacks follow the Latin faces. */
+  --font-display: 'Bahnschrift', 'Segoe UI Variable Display', 'Segoe UI Black', 'Avenir Next Condensed', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  --font-body: 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Consolas', 'SF Mono', 'Menlo', 'Courier New', monospace;
 
   --motion-reveal: 0.8s;
   --motion-hover: 0.25s;
+}
+
+/* Dark theme: follows the system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0B0E12;
+    --bg-light: #151A20;
+    --bg-dark: #0E1216;
+    --bg-dark-alt: #131A22;
+
+    --text-main: #F2F7FB;
+    --text-secondary: #9FB0BF;
+
+    --glass-bg: rgba(16, 20, 24, 0.72);
+    --glass-border: rgba(242, 247, 251, 0.09);
+
+    --hero-glow-sky: rgba(56, 189, 248, 0.10);
+    --hero-glow-orange: rgba(255, 122, 61, 0.09);
+    --orb-opacity: 0.28;
+
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root { --chip-bg: rgba(255, 255, 255, 0.6); }
+
+@media (prefers-color-scheme: dark) {
+  :root { --chip-bg: rgba(22, 30, 38, 0.6); }
 }
