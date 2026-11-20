@@ -172,17 +172,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   flex-wrap: wrap;
 }
 
-/* ===== Hero logo (restored original site mark) ===== */
-.hero-visual {
-  margin-top: 48px;
-  pointer-events: none;
-}
-
-.hero-icon {
-  width: clamp(170px, 22vw, 240px);
-  height: auto;
-}
-
 /* ===== Pill buttons ===== */
 .btn {
   display: inline-flex;
