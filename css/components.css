@@ -329,6 +329,12 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
 .footer-link:hover { color: var(--orange-dark); }
 .footer-link:hover::after { transform: scaleX(1); }
 
+.footer-ai {
+  font-size: 0.8rem;
+  color: var(--sky-deep);
+  margin-bottom: 6px;
+}
+
 .footer-copy { font-size: 0.82rem; color: var(--text-secondary); }
 
 /* ===== Responsive ===== */

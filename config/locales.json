@@ -11,12 +11,13 @@
     "hero_cta": "Explore Projects",
     "hero_github": "GitHub",
     "projects_kicker": "Open Source",
-    "metrocal_tagline": "Calendar app with a modern face.",
-    "metrocal_desc": "A calendar application project. Grab the latest build from the releases page.",
+    "metrocal_tagline": "A calculator in Metro style.",
+    "metrocal_desc": "A calculator with a clean Metro-style interface. Grab the latest build from the releases page.",
     "btn_release": "Release",
     "btn_repo": "Repository",
     "footer_github": "GitHub",
     "footer_releases": "Releases",
+    "footer_ai": "This website is AI-generated.",
     "footer_copy": "© 2026 UUOUU01. All rights reserved."
   },
   "zh": {
@@ -31,12 +32,13 @@
     "hero_cta": "探索项目",
     "hero_github": "GitHub",
     "projects_kicker": "开源",
-    "metrocal_tagline": "一款有现代感的日历应用。",
-    "metrocal_desc": "日历应用项目。前往 Releases 页面获取最新版本。",
+    "metrocal_tagline": "一款 Metro 风格的计算器。",
+    "metrocal_desc": "拥有干净 Metro 风格界面的计算器。前往 Releases 页面获取最新版本。",
     "btn_release": "Release 下载",
     "btn_repo": "代码仓库",
     "footer_github": "GitHub",
     "footer_releases": "版本发布",
+    "footer_ai": "本网站由 AI 生成。",
     "footer_copy": "© 2026 UUOUU01. 保留所有权利。"
   },
   "ja": {
@@ -51,12 +53,13 @@
     "hero_cta": "プロジェクトを見る",
     "hero_github": "GitHub",
     "projects_kicker": "オープンソース",
-    "metrocal_tagline": "モダンなカレンダーアプリ。",
-    "metrocal_desc": "カレンダーアプリケーションのプロジェクト。最新版は Releases ページから入手できます。",
+    "metrocal_tagline": "Metro スタイルの電卓。",
+    "metrocal_desc": "クリーンな Metro スタイルのインターフェースを持つ電卓。最新版は Releases ページから入手できます。",
     "btn_release": "Release を入手",
     "btn_repo": "リポジトリ",
     "footer_github": "GitHub",
     "footer_releases": "リリース",
+    "footer_ai": "本サイトは AI によって生成されました。",
     "footer_copy": "© 2026 UUOUU01. All rights reserved."
   },
   "ru": {
@@ -71,12 +74,13 @@
     "hero_cta": "К проектам",
     "hero_github": "GitHub",
     "projects_kicker": "Open Source",
-    "metrocal_tagline": "Календарь с современным лицом.",
-    "metrocal_desc": "Проект календаря. Свежая сборка — на странице Releases.",
+    "metrocal_tagline": "Калькулятор в стиле Metro.",
+    "metrocal_desc": "Калькулятор с чистым интерфейсом в стиле Metro. Свежая сборка — на странице Releases.",
     "btn_release": "Release",
     "btn_repo": "Репозиторий",
     "footer_github": "GitHub",
     "footer_releases": "Релизы",
+    "footer_ai": "Этот сайт сгенерирован ИИ.",
     "footer_copy": "© 2026 UUOUU01. Все права защищены."
   },
   "fr": {
@@ -91,12 +95,13 @@
     "hero_cta": "Explorer les projets",
     "hero_github": "GitHub",
     "projects_kicker": "Open Source",
-    "metrocal_tagline": "Un calendrier au visage moderne.",
-    "metrocal_desc": "Un projet d'application de calendrier. Dernière version sur la page Releases.",
+    "metrocal_tagline": "Une calculatrice de style Metro.",
+    "metrocal_desc": "Une calculatrice à l'interface épurée de style Metro. Dernière version sur la page Releases.",
     "btn_release": "Release",
     "btn_repo": "Dépôt",
     "footer_github": "GitHub",
     "footer_releases": "Versions",
+    "footer_ai": "Ce site est généré par IA.",
     "footer_copy": "© 2026 UUOUU01. Tous droits réservés."
   }
 }
