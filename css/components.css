@@ -183,36 +183,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   height: auto;
 }
 
-/* ===== Big color-block art: vertical pills, orange <-> sky ===== */
-.hero-pills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  height: 260px;
-  margin-top: 56px;
-  pointer-events: none;
-}
-
-.pill {
-  width: clamp(44px, 7vw, 84px);
-  border-radius: var(--radius-pill);
-  animation: floatY 6s ease-in-out infinite;
-  transition: transform var(--motion-hover) ease, filter var(--motion-hover) ease;
-}
-
-.pill.p-orange  { height: 78%; background: linear-gradient(180deg, var(--orange-light), var(--orange) 55%, var(--orange-dark)); }
-.pill.p-sky     { height: 60%; background: linear-gradient(180deg, var(--sky-soft), var(--sky) 55%, var(--sky-deep)); animation-delay: 0.5s; }
-.pill.p-duo     { height: 88%; background: linear-gradient(160deg, var(--orange) 10%, var(--orange-light) 35%, var(--sky) 75%, var(--sky-deep)); animation-delay: 1s; }
-.pill.p-dot     { width: clamp(44px, 7vw, 84px); height: clamp(44px, 7vw, 84px); background: radial-gradient(circle at 35% 30%, var(--sky-soft), var(--sky-deep)); animation-delay: 1.5s; }
-.pill.p-duo-r   { height: 70%; background: linear-gradient(200deg, var(--sky) 15%, var(--orange-light) 70%, var(--orange)); animation-delay: 2s; }
-.pill.p-orange2 { height: 52%; background: linear-gradient(180deg, var(--orange), var(--orange-light)); animation-delay: 2.5s; }
-
-/* pills respond on hover even though decorative: they gently stand up */
-.hero-pills:hover .pill { filter: saturate(1.25) brightness(1.05); }
-.hero-pills:hover .pill.p-duo { transform: translateY(-8px); }
-.hero-pills:hover .pill.p-dot { transform: translateY(-14px) scale(1.08); }
-
 /* ===== Pill buttons ===== */
 .btn {
   display: inline-flex;
@@ -388,7 +358,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
 @media (max-width: 760px) {
   .nav-menu { display: none; }
   .hero { padding: 100px 0 60px; }
-  .hero-pills { height: 180px; gap: 12px; margin-top: 40px; }
   .project-block { padding: 80px 0; }
 }
 
