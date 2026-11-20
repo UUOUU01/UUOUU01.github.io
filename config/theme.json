@@ -15,8 +15,8 @@
     "textSecondary": "#5A6B7A"
   },
   "font": {
-    "display": "'Bahnschrift', 'Segoe UI Variable Display', 'Segoe UI Black', 'Avenir Next Condensed', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif",
-    "body": "'Segoe UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "display": "'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'SimHei', 'Heiti SC', 'STHeiti', 'sans-serif'",
+    "body": "'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'SimHei', 'Heiti SC', 'STHeiti', 'sans-serif'",
     "mono": "'Cascadia Code', 'Consolas', 'SF Mono', 'Menlo', 'Courier New', monospace"
   },
   "radius": { "pill": "980px", "card": "18px" },
