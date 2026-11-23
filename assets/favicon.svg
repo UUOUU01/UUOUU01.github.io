@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#FF7A3D"/>
-  <text x="30" y="47" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" fill="#FFFFFF" text-anchor="middle">U</text>
-  <circle cx="50" cy="14" r="7" fill="#38BDF8"/>
+  <defs>
+    <!-- subtle darkening toward the bottom, nothing loud -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.55" stop-color="#FF7A3D"/>
+      <stop offset="1" stop-color="#E8601F"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- U drawn as strokes so it renders identically everywhere -->
+  <path d="M17 16 v19 a10 10 0 0 0 20 0 V16"
+        fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- dot: filled core, white ring, small highlight -->
+  <circle cx="50" cy="13" r="8" fill="#0EA5E9" stroke="#FFFFFF" stroke-width="2.5"/>
+  <circle cx="47.2" cy="10.6" r="2.1" fill="#BAE6FD"/>
 </svg>
