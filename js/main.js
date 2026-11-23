@@ -2,7 +2,7 @@ import { LanguageManager } from './language.js';
 import { ProjectsRenderer } from './projects.js';
 import { Navigation, playPageLoad } from './navigation.js';
 import { initClickFx } from './interactions.js';
-import { MegaParticles } from './mega.js';
+import { MegaParticles, initHeroDots } from './mega.js';
 
 class App {
   constructor() {
@@ -16,6 +16,7 @@ class App {
     initClickFx();
     const mega = document.querySelector('.mega');
     if (mega) new MegaParticles(mega).init();
+    initHeroDots(document.querySelector('.hero'));
     const ready = Promise.all([this.language.init(), this.projects.init()]);
     this.bindLangButtons();
     playPageLoad(ready);

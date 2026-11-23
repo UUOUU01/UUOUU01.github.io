@@ -1,17 +1,18 @@
-// Mega word rendered as flat particles that assemble into the text.
-// The word follows the active language via the hidden i18n span, and the
-// particles glide to their new shape whenever the language changes.
+// Mega word assembled from real SVG particle circles: every particle is a
+// <circle> node. The word follows the active language via the hidden i18n
+// span, and particles glide to their new shape whenever the language changes.
+// Also exports the hero background dot field.
+const SVG_NS = 'http://www.w3.org/2000/svg';
 const POINT_STEP = 4;          // px between sampled text pixels
-const MAX_PARTICLES = 1400;    // perf ceiling, step grows if exceeded
+const MAX_PARTICLES = 600;     // DOM node ceiling, step grows if exceeded
 const MOUSE_RADIUS = 70;       // repel distance in px
-const COLORS = { main: 0.7, orange: 0.15, sky: 0.15 }; // share of particles
+const COLOR_MIX = { main: 0.7, orange: 0.15, sky: 0.15 };
 
 export class MegaParticles {
   constructor(container) {
     this.container = container;
-    this.canvas = container.querySelector('.mega-canvas');
+    this.svg = container.querySelector('.mega-svg');
     this.srcEl = container.querySelector('.mega-src');
-    this.ctx = this.canvas.getContext('2d');
     this.particles = [];
     this.mouse = { x: -9999, y: -9999 };
     this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -26,33 +27,31 @@ export class MegaParticles {
     });
     document.addEventListener('langchange', () => this.setWord(this.srcEl.textContent.trim()));
 
-    this.canvas.addEventListener('mousemove', e => {
-      const rect = this.canvas.getBoundingClientRect();
+    this.svg.addEventListener('mousemove', e => {
+      const rect = this.svg.getBoundingClientRect();
       this.mouse.x = e.clientX - rect.left;
       this.mouse.y = e.clientY - rect.top;
     });
-    this.canvas.addEventListener('mouseleave', () => { this.mouse.x = -9999; this.mouse.y = -9999; });
+    this.svg.addEventListener('mouseleave', () => { this.mouse.x = -9999; this.mouse.y = -9999; });
 
     this.setWord(this.srcEl.textContent.trim());
-    if (this.reduced) this.drawStatic();
-    else this.tick();
+    if (!this.reduced) this.tick();
   }
 
   resize() {
     const rect = this.container.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
     this.width = rect.width;
     this.height = rect.height;
-    this.canvas.width = rect.width * dpr;
-    this.canvas.height = rect.height * dpr;
-    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    this.svg.setAttribute('width', this.width);
+    this.svg.setAttribute('height', this.height);
+    this.svg.setAttribute('viewBox', `0 0 ${this.width} ${this.height}`);
   }
 
   cssVar(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   }
 
-  // Sample the word's pixels on an offscreen canvas, return target points.
+  // Sample the word's pixel grid on an offscreen canvas, return target points.
   sampleWord(word) {
     const off = document.createElement('canvas');
     off.width = this.width;
@@ -90,38 +89,42 @@ export class MegaParticles {
     return points;
   }
 
+  pickColor() {
+    const roll = Math.random();
+    if (roll < COLOR_MIX.main) return this.cssVar('--text-main');
+    if (roll < COLOR_MIX.main + COLOR_MIX.orange) return this.cssVar('--orange');
+    return this.cssVar('--sky-deep');
+  }
+
   setWord(word) {
     const points = this.sampleWord(word);
-    const palette = [
-      { color: this.cssVar('--text-main'), weight: COLORS.main },
-      { color: this.cssVar('--orange'), weight: COLORS.orange },
-      { color: this.cssVar('--sky-deep'), weight: COLORS.sky }
-    ];
 
     // Grow/shrink the flock, keep existing positions so the shape morphs
     // instead of snapping when the word changes.
     while (this.particles.length < points.length) {
+      const circle = document.createElementNS(SVG_NS, 'circle');
+      this.svg.appendChild(circle);
       this.particles.push({
+        el: circle,
         x: Math.random() * this.width,
         y: Math.random() * this.height,
-        vx: 0, vy: 0, r: 1.4 + Math.random() * 1.2
+        vx: 0, vy: 0, r: 1.3 + Math.random() * 1.3
       });
     }
-    this.particles.length = points.length;
+    while (this.particles.length > points.length) {
+      this.particles.pop().el.remove();
+    }
 
     this.particles.forEach((p, i) => {
       p.tx = points[i].x;
       p.ty = points[i].y;
-      const roll = Math.random();
-      p.color = roll < palette[0].weight ? palette[0].color
-        : roll < palette[0].weight + palette[1].weight ? palette[1].color
-        : palette[2].color;
+      p.el.setAttribute('r', p.r);
+      p.el.setAttribute('fill', this.pickColor());
     });
   }
 
   tick() {
-    const { ctx, particles, mouse } = this;
-    ctx.clearRect(0, 0, this.width, this.height);
+    const { particles, mouse } = this;
 
     for (const p of particles) {
       // spring toward the target shape
@@ -143,19 +146,39 @@ export class MegaParticles {
       p.vy *= 0.88;
       p.x += p.vx;
       p.y += p.vy;
-
-      ctx.fillStyle = p.color;
-      ctx.fillRect(p.x, p.y, p.r, p.r);
+      p.el.setAttribute('cx', p.x);
+      p.el.setAttribute('cy', p.y);
     }
     this.raf = requestAnimationFrame(() => this.tick());
   }
+}
 
-  drawStatic() {
-    const { ctx, particles } = this;
-    ctx.clearRect(0, 0, this.width, this.height);
-    for (const p of particles) {
-      ctx.fillStyle = p.color;
-      ctx.fillRect(p.tx, p.ty, p.r, p.r);
-    }
+// Hero background: a loose field of faint SVG dots drifting on the floatY
+// keyframes. Pure CSS animation, no JS per frame.
+export function initHeroDots(hero) {
+  if (!hero) return;
+  const svg = hero.querySelector('.hero-dots');
+  if (!svg) return;
+
+  const rect = hero.getBoundingClientRect();
+  const palette = [
+    { color: 'var(--orange)', weight: 0.35 },
+    { color: 'var(--sky-deep)', weight: 0.3 },
+    { color: 'var(--text-secondary)', weight: 0.35 }
+  ];
+  const COUNT = 70;
+
+  for (let i = 0; i < COUNT; i++) {
+    const dot = document.createElementNS(SVG_NS, 'circle');
+    const roll = Math.random();
+    dot.setAttribute('cx', Math.random() * rect.width);
+    dot.setAttribute('cy', Math.random() * rect.height);
+    dot.setAttribute('r', 1.5 + Math.random() * 2.5);
+    dot.setAttribute('fill', roll < palette[0].weight ? palette[0].color
+      : roll < palette[0].weight + palette[1].weight ? palette[1].color
+      : palette[2].color);
+    dot.setAttribute('opacity', (0.18 + Math.random() * 0.3).toFixed(2));
+    dot.style.animation = `floatY ${6 + Math.random() * 7}s ease-in-out ${-Math.random() * 8}s infinite`;
+    svg.appendChild(dot);
   }
 }
