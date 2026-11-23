@@ -94,6 +94,47 @@
 .loader-dot.is-orange { background: var(--orange); }
 .loader-dot.is-sky    { background: var(--sky); animation-delay: 0.18s; }
 
+.loader-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.25; }
+}
+
+/* ===== Click feedback: ripple inside buttons, particle burst on body ===== */
+.btn, .lang-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transform: scale(0);
+  animation: ripple 0.55s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to { transform: scale(3.2); opacity: 0; }
+}
+
+.click-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
 /* ===== Hover life (every clickable feels alive) ===== */
 .can-click {
   cursor: pointer;
@@ -131,6 +172,6 @@
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-page); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--orange), var(--sky));
+  background: var(--orange);
   border-radius: 5px;
 }

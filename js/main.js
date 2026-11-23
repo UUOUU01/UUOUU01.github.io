@@ -1,6 +1,7 @@
 import { LanguageManager } from './language.js';
 import { ProjectsRenderer } from './projects.js';
 import { Navigation, playPageLoad } from './navigation.js';
+import { initClickFx } from './interactions.js';
 
 class App {
   constructor() {
@@ -11,10 +12,10 @@ class App {
 
   async init() {
     new Navigation();
-    await this.language.init();
-    await this.projects.init();
+    initClickFx();
+    const ready = Promise.all([this.language.init(), this.projects.init()]);
     this.bindLangButtons();
-    playPageLoad();
+    playPageLoad(ready);
   }
 
   bindLangButtons() {

@@ -32,13 +32,22 @@ export class Navigation {
   }
 }
 
-// Page load: hide loader, then play the 0.8s blur-in cascade on hero content.
-export function playPageLoad() {
+// Page load: the loader overlay is REAL — it stays up until the actual data
+// fetches and the window load event have both finished (4s cap so a hung
+// request can never trap the user). Then the 0.8s blur-in cascade plays.
+export function playPageLoad(readyPromise = Promise.resolve()) {
   const overlay = document.getElementById('page-load');
   const items = document.querySelectorAll('.page-load');
 
-  setTimeout(() => {
+  const winLoad = new Promise(resolve => {
+    if (document.readyState === 'complete') resolve();
+    else window.addEventListener('load', resolve, { once: true });
+  });
+  const minShow = new Promise(resolve => setTimeout(resolve, 500));
+  const safetyCap = new Promise(resolve => setTimeout(resolve, 4000));
+
+  Promise.race([Promise.all([readyPromise, winLoad, minShow]), safetyCap]).then(() => {
     overlay?.classList.add('hidden');
     items.forEach((el, i) => setTimeout(() => el.classList.add('active'), i * 90));
-  }, 700);
+  });
 }

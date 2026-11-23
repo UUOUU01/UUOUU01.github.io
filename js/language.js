@@ -41,7 +41,7 @@ export class LanguageManager {
 
     if (animate) {
       const targets = document.querySelectorAll(
-        '.hero-title, .hero-sub, .hero-desc, .hero-actions, .project-title, .project-tagline, .project-desc, .project-kicker'
+        '.hero-title, .hero-sub, .mega, .hero-actions, .project-title, .project-tagline, .project-desc, .project-kicker'
       );
       targets.forEach((el, i) => {
         el.classList.remove('content-burst');
