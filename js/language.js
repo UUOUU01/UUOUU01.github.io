@@ -33,6 +33,9 @@ export class LanguageManager {
       if (val) el.textContent = val;
     });
 
+    // Let canvas-based listeners (particle mega word) re-render in the new language.
+    document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: this.current } }));
+
     document.title = this.t('page_title') || document.title;
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
