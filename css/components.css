@@ -135,28 +135,43 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   margin-bottom: 34px;
 }
 
-/* Mega word: one giant word standing on a crowd of small words */
+/* Mega word: giant outlined word floating on flowing rivers of small words */
 .mega {
   position: relative;
-  height: clamp(96px, 16vw, 170px);
+  height: clamp(120px, 20vw, 210px);
   margin-bottom: 40px;
 }
 
-.mega-fill {
+.mega-rows {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  font-family: var(--font-mono);
-  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.06em;
-  word-spacing: 0.5em;
-  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 
-.mega-fill .w-orange { color: var(--orange); }
-.mega-fill .w-sky { color: var(--sky-deep); }
+.mega-row {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+
+.mega-row:nth-child(2) { animation-duration: 30s; animation-direction: reverse; opacity: 0.75; }
+.mega-row:nth-child(3) { animation-duration: 26s; opacity: 0.5; }
+
+.mega-row span { flex: none; margin-right: 34px; }
+.mega-fill .w-orange, .mega-row .w-orange { color: var(--orange); }
+.mega-fill .w-sky, .mega-row .w-sky { color: var(--sky-deep); }
 
 .mega-word {
   position: absolute;
@@ -169,7 +184,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   line-height: 1;
   color: transparent;
   -webkit-text-stroke: 3px var(--text-main);
+  transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease;
   pointer-events: none;
+}
+
+.mega:hover .mega-word {
+  color: var(--orange);
+  -webkit-text-stroke-color: var(--orange-dark);
 }
 
 .hero-actions {

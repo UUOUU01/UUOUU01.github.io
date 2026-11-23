@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>404 - UUOUU01</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Frosted nav -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">UUOUU01</a>
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#projects" class="nav-link">Projects</a></li>
+        <li><a href="https://github.com/UUOUU01" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 404 hero: same flat, left-aligned, high contrast style -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title content-burst">404</h1>
+      <p class="hero-sub content-burst" style="animation-delay:0.08s">This page went off the map.</p>
+      <div class="mega content-burst" style="animation-delay:0.16s" aria-hidden="true">
+        <div class="mega-rows">
+          <div class="mega-row">
+            <span>lost</span><span class="w-orange">missing</span><span>void</span><span class="w-sky">nowhere</span><span>gone</span><span class="w-orange">hmm</span><span>lost</span><span class="w-sky">missing</span><span>void</span><span class="w-orange">nowhere</span><span>gone</span><span class="w-sky">hmm</span>
+          </div>
+          <div class="mega-row">
+            <span class="w-sky">retry</span><span>back</span><span class="w-orange">home</span><span>again</span><span class="w-sky">wrong turn</span><span>dead end</span><span class="w-orange">retry</span><span>back</span><span class="w-sky">home</span><span>again</span><span class="w-orange">wrong turn</span><span>dead end</span>
+          </div>
+        </div>
+        <div class="mega-word">404</div>
+      </div>
+      <div class="hero-actions content-burst" style="animation-delay:0.24s">
+        <a href="/" class="btn btn-orange">Back Home <span class="btn-arrow">→</span></a>
+        <a href="/#projects" class="btn btn-ghost">Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-ai">This website is AI-generated.</p>
+      <p class="footer-copy">© 2026 UUOUU01. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Language-aware 404: match the browser language for the two lines we own.
+    (function () {
+      var lang = (localStorage.getItem('lang') || (navigator.language || 'en').slice(0, 2)).toLowerCase();
+      var copy = {
+        en: ['This page went off the map.', 'Back Home'],
+        zh: ['这个页面跑丢了。', '回主页'],
+        ja: ['このページは見つかりません。', 'ホームへ'],
+        ru: ['Эта страница потерялась.', 'На главную'],
+        fr: ["Cette page s'est perdue.", "Retour à l'accueil"]
+      }[lang] || ['This page went off the map.', 'Back Home'];
+      document.querySelector('.hero-sub').textContent = copy[0];
+      document.querySelector('.btn-orange').childNodes[0].textContent = copy[1] + ' ';
+    })();
+  </script>
+</body>
+</html>

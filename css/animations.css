@@ -34,6 +34,11 @@
   to   { transform: scaleX(1); }
 }
 
+/* Seamless horizontal loop for the mega word rivers (content duplicated in HTML) */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
 /* ===== Page-load reveal: bottom + blur → top + sharp, 0.8s ===== */
 .page-load {
   opacity: 0;
