@@ -292,6 +292,40 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   flex-wrap: wrap;
 }
 
+/* ===== Cookie consent banner (first visit only) ===== */
+.consent {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 16px 22px;
+  background: var(--text-main);
+  color: var(--bg-page);
+}
+
+.consent.show { display: flex; }
+
+.consent-text {
+  font-size: 0.92rem;
+  max-width: 640px;
+}
+
+.consent-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.consent .btn-ghost {
+  color: var(--bg-page);
+  border-color: var(--bg-page);
+}
+
+.consent .btn-ghost:hover {
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
 /* ===== Footer ===== */
 .footer {
   padding: 40px 0;

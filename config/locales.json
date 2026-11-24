@@ -18,7 +18,10 @@
     "footer_github": "GitHub",
     "footer_releases": "Releases",
     "footer_ai": "This website is AI-generated.",
-    "footer_copy": "© 2026 UUOUU01. All rights reserved."
+    "footer_copy": "© 2026 UUOUU01. All rights reserved.",
+    "consent_text": "This site uses cookies to remember your preferences (like language). Store them?",
+    "consent_accept": "Allow",
+    "consent_decline": "No thanks"
   },
   "zh": {
     "page_title": "UUOUU01",
@@ -28,7 +31,7 @@
     "nav_github": "GitHub",
     "hero_title": "UUOUU01",
     "hero_sub": "开发者",
-    "mega_word": "构建",
+    "mega_word": "折腾",
     "hero_cta": "看看我的作品",
     "hero_github": "GitHub",
     "projects_kicker": "开源",
@@ -39,7 +42,10 @@
     "footer_github": "GitHub",
     "footer_releases": "版本发布",
     "footer_ai": "本网站由 AI 生成。",
-    "footer_copy": "© 2026 UUOUU01. 保留所有权利。"
+    "footer_copy": "© 2026 UUOUU01. 保留所有权利。",
+    "consent_text": "本网站使用 Cookie 记住你的偏好（比如语言）。要存储吗？",
+    "consent_accept": "允许",
+    "consent_decline": "不用了"
   },
   "ja": {
     "page_title": "UUOUU01",
@@ -60,7 +66,10 @@
     "footer_github": "GitHub",
     "footer_releases": "リリース",
     "footer_ai": "本サイトは AI によって生成されました。",
-    "footer_copy": "© 2026 UUOUU01. All rights reserved."
+    "footer_copy": "© 2026 UUOUU01. All rights reserved.",
+    "consent_text": "このサイトは設定（言語など）を記憶するために Cookie を使います。保存しますか？",
+    "consent_accept": "許可",
+    "consent_decline": "なしで"
   },
   "ru": {
     "page_title": "UUOUU01",
@@ -81,7 +90,10 @@
     "footer_github": "GitHub",
     "footer_releases": "Релизы",
     "footer_ai": "Этот сайт сгенерирован ИИ.",
-    "footer_copy": "© 2026 UUOUU01. Все права защищены."
+    "footer_copy": "© 2026 UUOUU01. Все права защищены.",
+    "consent_text": "Сайт использует cookie, чтобы запомнить ваши настройки (например, язык). Сохранить?",
+    "consent_accept": "Разрешить",
+    "consent_decline": "Нет"
   },
   "fr": {
     "page_title": "UUOUU01",
@@ -102,6 +114,9 @@
     "footer_github": "GitHub",
     "footer_releases": "Versions",
     "footer_ai": "Ce site est généré par IA.",
-    "footer_copy": "© 2026 UUOUU01. Tous droits réservés."
+    "footer_copy": "© 2026 UUOUU01. Tous droits réservés.",
+    "consent_text": "Ce site utilise des cookies pour mémoriser vos préférences (langue, etc.). Les enregistrer ?",
+    "consent_accept": "Autoriser",
+    "consent_decline": "Non merci"
   }
 }

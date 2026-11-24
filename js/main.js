@@ -3,6 +3,7 @@ import { ProjectsRenderer } from './projects.js';
 import { Navigation, playPageLoad } from './navigation.js';
 import { initClickFx } from './interactions.js';
 import { MegaParticles, initHeroDots } from './mega.js';
+import { initConsent } from './consent.js';
 
 class App {
   constructor() {
@@ -19,6 +20,7 @@ class App {
     initHeroDots(document.querySelector('.hero'));
     const ready = Promise.all([this.language.init(), this.projects.init()]);
     this.bindLangButtons();
+    initConsent(this.language);
     playPageLoad(ready);
   }
 

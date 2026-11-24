@@ -1,10 +1,13 @@
 import { loadJSON } from './config.js';
+import { getPref, setPref } from './storage.js';
 
 // Applies translations; fires an animation on content refresh so the
 // switch itself feels alive (0.8s blur-in burst).
+// Language preference lives in a consent-gated cookie; without consent
+// (or on first visit) it defaults to English every time.
 export class LanguageManager {
   constructor() {
-    this.current = localStorage.getItem('lang') || 'en';
+    this.current = getPref('lang') || 'en';
     this.dict = {};
   }
 
@@ -20,7 +23,7 @@ export class LanguageManager {
   setLanguage(lang) {
     if (!this.dict[lang]) return;
     this.current = lang;
-    localStorage.setItem('lang', lang);
+    setPref('lang', lang); // no-op unless the visitor allowed cookies
     this.apply(true);
   }
 

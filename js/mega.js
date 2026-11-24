@@ -58,16 +58,17 @@ export class MegaParticles {
     off.height = this.height;
     const c = off.getContext('2d');
 
+    // Left-aligned to match the hero: word starts at the left edge.
     const family = getComputedStyle(document.body).getPropertyValue('font-family');
     let size = this.height * 0.95;
+    c.textAlign = 'left';
+    c.textBaseline = 'middle';
     c.font = `800 ${size}px ${family}`;
     const w = c.measureText(word).width;
     if (w > this.width * 0.96) size *= (this.width * 0.96) / w;
     c.font = `800 ${size}px ${family}`;
-    c.textAlign = 'center';
-    c.textBaseline = 'middle';
     c.fillStyle = '#fff';
-    c.fillText(word, this.width / 2, this.height / 2);
+    c.fillText(word, 0, this.height / 2);
 
     let step = POINT_STEP;
     let points = this.scanPoints(c, off.width, off.height, step);
