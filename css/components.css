@@ -17,7 +17,7 @@ button { font-family: inherit; }
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 var(--container-padding); }
 
 /* ===== Frosted glass nav ===== */
 .nav {
@@ -36,7 +36,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   max-width: 1100px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 var(--container-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -111,7 +111,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 120px 0 80px;
+  padding: var(--hero-padding-y) 0 var(--hero-padding-b);
   background: var(--bg-page);
   position: relative;
   overflow: hidden;
@@ -301,13 +301,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   z-index: 9999;
   display: none;
   flex-direction: column;
-  gap: 2px;
-  padding: 4px;
+  gap: var(--context-menu-gap);
+  padding: var(--context-menu-padding);
   background: var(--bg-light);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-md);
   border-radius: var(--card-radius);
-  min-width: 180px;
+  min-width: var(--context-menu-min-width);
 }
 
 .context-menu.show { display: flex; }

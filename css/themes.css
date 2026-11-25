@@ -43,6 +43,25 @@
 
   --project-padding: 180px;
   --project-padding-mobile: 100px;
+
+  --container-padding: 22px;
+  --btn-padding-x: 30px;
+  --btn-padding-y: 13px;
+  --btn-gap: 8px;
+
+  --hero-padding-y: 120px;
+  --hero-padding-b: 80px;
+
+  --mega-height: clamp(120px, 20vw, 210px);
+  --mega-margin: 40px;
+
+  --context-menu-min-width: 180px;
+  --context-menu-gap: 2px;
+  --context-menu-padding: 4px;
+
+  --particle-radius: 1.6px;
+  --particle-radius-range: 1.8px;
+  --particle-step: 3px;
 }
 
 /* Dark theme: follows the system preference */

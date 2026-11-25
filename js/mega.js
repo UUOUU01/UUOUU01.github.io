@@ -3,7 +3,7 @@
 // span, and particles glide to their new shape whenever the language changes.
 // Also exports the hero background dot field.
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const POINT_STEP = 3;          // px between sampled text pixels (smaller = more particles)
+const POINT_STEP = getComputedStyle(document.documentElement).getPropertyValue('--particle-step').trim();
 const MAX_PARTICLES = 1400;    // perf ceiling, step grows if exceeded
 const MOUSE_RADIUS = 70;       // repel distance in px
 const COLOR_CYCLE = [
@@ -107,11 +107,13 @@ export class MegaParticles {
     while (this.particles.length < points.length) {
       const circle = document.createElementNS(SVG_NS, 'circle');
       this.svg.appendChild(circle);
+      const r = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--particle-radius').trim());
+      const rRange = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--particle-radius-range').trim());
       this.particles.push({
         el: circle,
         x: Math.random() * this.width,
         y: Math.random() * this.height,
-        vx: 0, vy: 0, r: 1.6 + Math.random() * 1.8
+        vx: 0, vy: 0, r: r + Math.random() * rRange
       });
     }
     while (this.particles.length > points.length) {
