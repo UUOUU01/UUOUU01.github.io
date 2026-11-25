@@ -19,6 +19,6 @@
     "body": "'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'SimHei', 'Heiti SC', 'STHeiti', 'sans-serif'",
     "mono": "'Cascadia Code', 'Consolas', 'SF Mono', 'Menlo', 'Courier New', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', monospace"
   },
-  "radius": { "pill": "980px", "card": "18px" },
+  "radius": { "pill": "40px", "card": "8px", "btn": "2px" },
   "motion": { "reveal": "0.8s", "hover": "0.25s" }
 }

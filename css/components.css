@@ -277,19 +277,22 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
 
 .project-desc {
   max-width: 540px;
-  margin: 0 auto 34px;
+  margin: 0 auto 20px;
   font-size: 1rem;
   color: var(--text-secondary);
 }
 
 .project-block.is-dark .project-desc,
-.project-block.is-dark-alt .project-desc { color: rgba(242, 247, 251, 0.72); }
+.project-block.is-dark-alt .project-desc {
+  color: rgba(242, 247, 251, 0.72);
+}
 
-.project-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+.project-tech,
+.project-render {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  margin-bottom: 8px;
 }
 
 /* ===== Cookie consent banner (first visit only) ===== */

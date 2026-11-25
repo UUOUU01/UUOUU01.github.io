@@ -21,7 +21,9 @@
     "footer_copy": "© 2026 UUOUU01. All rights reserved.",
     "consent_text": "This site uses cookies to remember your preferences (like language). Store them?",
     "consent_accept": "Allow",
-    "consent_decline": "No thanks"
+    "consent_decline": "No thanks",
+    "tech": "Tech",
+    "render": "Rendering"
   },
   "zh": {
     "page_title": "UUOUU01",
@@ -45,7 +47,9 @@
     "footer_copy": "© 2026 UUOUU01. 保留所有权利。",
     "consent_text": "本网站使用 Cookie 记住你的偏好（比如语言）。要存储吗？",
     "consent_accept": "允许",
-    "consent_decline": "不用了"
+    "consent_decline": "不用了",
+    "tech": "技术栈",
+    "render": "渲染"
   },
   "ja": {
     "page_title": "UUOUU01",
@@ -69,7 +73,9 @@
     "footer_copy": "© 2026 UUOUU01. All rights reserved.",
     "consent_text": "このサイトは設定（言語など）を記憶するために Cookie を使います。保存しますか？",
     "consent_accept": "許可",
-    "consent_decline": "なしで"
+    "consent_decline": "なしで",
+    "tech": "技術",
+    "render": "レンダリング"
   },
   "ru": {
     "page_title": "UUOUU01",
@@ -93,7 +99,9 @@
     "footer_copy": "© 2026 UUOUU01. Все права защищены.",
     "consent_text": "Сайт использует cookie, чтобы запомнить ваши настройки (например, язык). Сохранить?",
     "consent_accept": "Разрешить",
-    "consent_decline": "Нет"
+    "consent_decline": "Нет",
+    "tech": "Технологии",
+    "render": "Рендеринг"
   },
   "fr": {
     "page_title": "UUOUU01",
@@ -117,6 +125,8 @@
     "footer_copy": "© 2026 UUOUU01. Tous droits réservés.",
     "consent_text": "Ce site utilise des cookies pour mémoriser vos préférences (langue, etc.). Les enregistrer ?",
     "consent_accept": "Autoriser",
-    "consent_decline": "Non merci"
+    "consent_decline": "Non merci",
+    "tech": "Stack",
+    "render": "Rendu"
   }
 }

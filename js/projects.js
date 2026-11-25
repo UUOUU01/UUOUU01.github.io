@@ -40,6 +40,8 @@ export class ProjectsRenderer {
     const taglineKey = `${p.id}_tagline`;
     const releases = p.releases || `${(p.repo || '').replace(/\/$/, '')}/releases`;
     const repo = p.repo || releases;
+    const tech = p.tech || '';
+    const render = p.render || '';
 
     return `
       <section class="project-block ${theme}" data-project="${p.id}" data-releases="${releases}">
@@ -48,7 +50,9 @@ export class ProjectsRenderer {
           <h2 class="project-title reveal stagger-1">${name}</h2>
           <p class="project-tagline reveal stagger-2" data-i18n="${taglineKey}">${this.lang.t(taglineKey)}</p>
           <p class="project-desc reveal stagger-3" data-i18n="${descKey}">${this.lang.t(descKey)}</p>
-          <div class="project-actions reveal stagger-4">
+          ${tech ? `<p class="project-tech reveal stagger-4" data-i18n="tech">${tech}</p>` : ''}
+          ${render ? `<p class="project-render reveal stagger-4" data-i18n="render">${render}</p>` : ''}
+          <div class="project-actions reveal stagger-5">
             <a href="${releases}" target="_blank" rel="noopener" class="btn btn-orange">
               <span data-i18n="btn_release">${this.lang.t('btn_release')}</span>
               <span class="btn-arrow">→</span>
