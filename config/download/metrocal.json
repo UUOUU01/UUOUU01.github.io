@@ -5,6 +5,5 @@
   "releases": "https://github.com/UUOUU01/metrocal/releases",
   "theme": "dark",
   "tech": "Rust + Skia",
-  "render": "GPU first, CPU fallback",
-  "description": "A calculator with a clean Metro-style interface. Uses Rust and Skia; GPU rendering is preferred, but it falls back to CPU rendering if needed."
+  "description": "A calculator with a clean Metro-style interface. Uses Rust and Skia."
 }

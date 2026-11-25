@@ -187,7 +187,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   padding: 13px 30px;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: var(--radius-pill);
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: transform var(--motion-hover) ease,
