@@ -27,7 +27,20 @@ export class ProjectsRenderer {
 
     root.innerHTML = projects.map((p, i) => this.blockHTML(p, i)).join('');
     this.bindActions(root);
+    this.bindContextMenu(root);
     this.observeBlocks(root);
+  }
+
+  bindContextMenu(root) {
+    const menu = new ContextMenu();
+
+    root.querySelectorAll('.project-block').forEach(block => {
+      block.addEventListener('contextmenu', e => {
+        e.preventDefault();
+        const projectId = block.dataset.project;
+        menu.show(e.clientX, e.clientY, projectId);
+      });
+    });
   }
 
   blockHTML(p, i) {

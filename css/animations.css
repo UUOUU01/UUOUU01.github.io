@@ -34,7 +34,7 @@
   to   { transform: scaleX(1); }
 }
 
-/* ===== Page-load reveal: bottom + blur → top + sharp, 0.8s ===== */
+/* ===== Page-load reveal: bottom + blur → top + sharp, 0.8s cubic-bezier (fast then slow) ===== */
 .page-load {
   opacity: 0;
   filter: blur(18px);
@@ -45,9 +45,9 @@
   opacity: 1;
   filter: blur(0);
   transform: translateY(0);
-  transition: opacity var(--motion-reveal) ease,
-              filter var(--motion-reveal) ease,
-              transform var(--motion-reveal) ease;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Scroll-triggered variant */
@@ -55,9 +55,9 @@
   opacity: 0;
   filter: blur(18px);
   transform: translateY(44px);
-  transition: opacity var(--motion-reveal) ease,
-              filter var(--motion-reveal) ease,
-              transform var(--motion-reveal) ease;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .reveal.active {
@@ -138,7 +138,7 @@
 /* ===== Hover life (every clickable feels alive) ===== */
 .can-click {
   cursor: pointer;
-  transition: transform var(--motion-hover) ease,
+  transition: transform var(--motion-hover) cubic-bezier(0.25, 0.1, 0.25, 1),
               box-shadow var(--motion-hover) ease,
               filter var(--motion-hover) ease,
               color var(--motion-hover) ease,

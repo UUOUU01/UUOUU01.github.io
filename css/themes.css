@@ -36,6 +36,13 @@
 
   --motion-reveal: 0.8s;
   --motion-hover: 0.25s;
+
+  --btn-radius: 2px;
+  --card-radius: 8px;
+  --pill-radius: 40px;
+
+  --project-padding: 180px;
+  --project-padding-mobile: 100px;
 }
 
 /* Dark theme: follows the system preference */

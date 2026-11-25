@@ -3,10 +3,17 @@
 // span, and particles glide to their new shape whenever the language changes.
 // Also exports the hero background dot field.
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const POINT_STEP = 4;          // px between sampled text pixels
-const MAX_PARTICLES = 600;     // DOM node ceiling, step grows if exceeded
+const POINT_STEP = 3;          // px between sampled text pixels (smaller = more particles)
+const MAX_PARTICLES = 1400;    // perf ceiling, step grows if exceeded
 const MOUSE_RADIUS = 70;       // repel distance in px
-const COLOR_MIX = { main: 0.7, orange: 0.15, sky: 0.15 };
+const COLOR_CYCLE = [
+  'var(--orange)',
+  'var(--sky-deep)',
+  '#10B981',  // emerald
+  'var(--text-secondary)',
+  '#FFFFFF'
+];
+const COLOR_CYCLE_INTERVAL = 4000; // ms per color
 
 export class MegaParticles {
   constructor(container) {
@@ -35,6 +42,7 @@ export class MegaParticles {
     this.svg.addEventListener('mouseleave', () => { this.mouse.x = -9999; this.mouse.y = -9999; });
 
     this.setWord(this.srcEl.textContent.trim());
+    this.startColorCycle();
     if (!this.reduced) this.tick();
   }
 
@@ -60,13 +68,14 @@ export class MegaParticles {
 
     // Left-aligned to match the hero: word starts at the left edge.
     const family = getComputedStyle(document.body).getPropertyValue('font-family');
-    let size = this.height * 0.95;
+    const baseSize = this.height * 0.95;
     c.textAlign = 'left';
     c.textBaseline = 'middle';
-    c.font = `800 ${size}px ${family}`;
+    c.font = `800 ${baseSize}px ${family}`;
     const w = c.measureText(word).width;
-    if (w > this.width * 0.96) size *= (this.width * 0.96) / w;
-    c.font = `800 ${size}px ${family}`;
+    const scale = this.width * 0.96 / w;
+    const finalSize = baseSize * scale;
+    c.font = `800 ${finalSize}px ${family}`;
     c.fillStyle = '#fff';
     c.fillText(word, 0, this.height / 2);
 
@@ -90,13 +99,6 @@ export class MegaParticles {
     return points;
   }
 
-  pickColor() {
-    const roll = Math.random();
-    if (roll < COLOR_MIX.main) return this.cssVar('--text-main');
-    if (roll < COLOR_MIX.main + COLOR_MIX.orange) return this.cssVar('--orange');
-    return this.cssVar('--sky-deep');
-  }
-
   setWord(word) {
     const points = this.sampleWord(word);
 
@@ -109,7 +111,7 @@ export class MegaParticles {
         el: circle,
         x: Math.random() * this.width,
         y: Math.random() * this.height,
-        vx: 0, vy: 0, r: 1.3 + Math.random() * 1.3
+        vx: 0, vy: 0, r: 1.6 + Math.random() * 1.8
       });
     }
     while (this.particles.length > points.length) {
@@ -120,8 +122,17 @@ export class MegaParticles {
       p.tx = points[i].x;
       p.ty = points[i].y;
       p.el.setAttribute('r', p.r);
-      p.el.setAttribute('fill', this.pickColor());
     });
+  }
+
+  startColorCycle() {
+    let cycleIndex = 0;
+    setInterval(() => {
+      cycleIndex = (cycleIndex + 1) % COLOR_CYCLE.length;
+      this.particles.forEach(p => {
+        p.el.setAttribute('fill', COLOR_CYCLE[cycleIndex]);
+      });
+    }, COLOR_CYCLE_INTERVAL);
   }
 
   tick() {

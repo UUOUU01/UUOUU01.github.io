@@ -187,7 +187,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   padding: 13px 30px;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: var(--btn-radius);
   border: none;
   cursor: pointer;
   transition: transform var(--motion-hover) ease,
@@ -232,7 +232,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   position: relative;
   overflow: hidden;
   text-align: center;
-  padding: 110px 0;
+  padding: var(--project-padding) 0;
   cursor: pointer;
   transition: filter var(--motion-hover) ease;
 }
@@ -293,6 +293,48 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
   font-family: var(--font-mono);
   color: var(--text-secondary);
   margin-bottom: 8px;
+}
+
+/* ===== Right-click context menu for project blocks ===== */
+.context-menu {
+  position: fixed;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  background: var(--bg-light);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--card-radius);
+  min-width: 180px;
+}
+
+.context-menu.show { display: flex; }
+
+.ctx-item {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: background var(--motion-hover) ease, color var(--motion-hover) ease;
+}
+
+.ctx-item:hover,
+.ctx-item.active {
+  background: #0EA5E9;
+  color: #fff;
+}
+
+.ctx-item:active {
+  background: #0284C7;
 }
 
 /* ===== Cookie consent banner (first visit only) ===== */
@@ -379,7 +421,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
 @media (max-width: 760px) {
   .nav-menu { display: none; }
   .hero { padding: 100px 0 60px; }
-  .project-block { padding: 80px 0; }
+  .project-block { padding: var(--project-padding-mobile) 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
