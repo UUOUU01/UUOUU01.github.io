@@ -18,10 +18,18 @@ class App {
     const mega = document.querySelector('.mega');
     if (mega) new MegaParticles(mega).init();
     initHeroDots(document.querySelector('.hero'));
-    const ready = Promise.all([this.language.init(), this.projects.init()]);
+
+    // Initialize language immediately, but don't wait for projects
+    this.language.init();
+
+    // Projects render async without blocking page load
+    this.projects.init();
+
     this.bindLangButtons();
     initConsent(this.language);
-    playPageLoad(ready);
+
+    // Play page load animation without waiting for data
+    playPageLoad();
   }
 
   bindLangButtons() {

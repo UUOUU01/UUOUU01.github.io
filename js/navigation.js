@@ -1,5 +1,5 @@
 // Nav + hero behaviors: smooth scroll for anchor links, IntersectionObserver
-// for any .reveal outside rendered projects (hero etc.), page-load sequence.
+// for any .reveal outside rendered projects (hero etc.).
 export class Navigation {
   constructor() {
     this.bindSmoothScroll();
@@ -32,22 +32,13 @@ export class Navigation {
   }
 }
 
-// Page load: the loader overlay is REAL — it stays up until the actual data
-// fetches and the window load event have both finished (4s cap so a hung
-// request can never trap the user). Then the 0.8s blur-in cascade plays.
-export function playPageLoad(readyPromise = Promise.resolve()) {
+// Page load: fade in content immediately without blocking. The loader
+// overlay is removed immediately, and the reveal animations play.
+export function playPageLoad() {
   const overlay = document.getElementById('page-load');
   const items = document.querySelectorAll('.page-load');
 
-  const winLoad = new Promise(resolve => {
-    if (document.readyState === 'complete') resolve();
-    else window.addEventListener('load', resolve, { once: true });
-  });
-  const minShow = new Promise(resolve => setTimeout(resolve, 500));
-  const safetyCap = new Promise(resolve => setTimeout(resolve, 4000));
-
-  Promise.race([Promise.all([readyPromise, winLoad, minShow]), safetyCap]).then(() => {
-    overlay?.classList.add('hidden');
-    items.forEach((el, i) => setTimeout(() => el.classList.add('active'), i * 90));
-  });
+  // Remove loader immediately and start reveal animations
+  overlay?.classList.add('hidden');
+  items.forEach((el, i) => setTimeout(() => el.classList.add('active'), i * 90));
 }
