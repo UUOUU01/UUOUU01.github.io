@@ -1,6 +1,6 @@
 import { LanguageManager } from './language.js';
 import { ProjectsRenderer } from './projects.js';
-import { Navigation, playPageLoad } from './navigation.js';
+import { Navigation } from './navigation.js';
 import { initClickFx } from './interactions.js';
 import { MegaParticles, initHeroDots } from './mega.js';
 import { initConsent } from './consent.js';
@@ -27,9 +27,6 @@ class App {
 
     this.bindLangButtons();
     initConsent(this.language);
-
-    // Play page load animation without waiting for data
-    playPageLoad();
   }
 
   bindLangButtons() {

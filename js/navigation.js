@@ -31,14 +31,3 @@ export class Navigation {
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
 }
-
-// Page load: fade in content immediately without blocking. The loader
-// overlay is removed immediately, and the reveal animations play.
-export function playPageLoad() {
-  const overlay = document.getElementById('page-load');
-  const items = document.querySelectorAll('.page-load');
-
-  // Remove loader immediately and start reveal animations
-  overlay?.classList.add('hidden');
-  items.forEach((el, i) => setTimeout(() => el.classList.add('active'), i * 90));
-}

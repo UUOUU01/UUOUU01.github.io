@@ -18,13 +18,7 @@ export async function discoverProjects(sourceDir) {
   if (index.repo) {
     try {
       const api = `https://api.github.com/repos/${index.repo}/contents/${sourceDir}`;
-
-      // Add timeout to prevent infinite waiting on network issues
-      const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Timeout')), 8000)
-      );
-
-      const res = await Promise.race([fetch(api, { cache: 'no-cache' }), timeoutPromise]);
+      const res = await fetch(api);
       if (res.ok) {
         const files = await res.json();
         const ids = files
@@ -33,7 +27,7 @@ export async function discoverProjects(sourceDir) {
         if (ids.length) return ids;
       }
     } catch (err) {
-      console.warn('[config] GitHub API listing failed, using fallback list:', err.message);
+      console.warn('[config] GitHub API listing failed, using fallback list');
     }
   }
 
