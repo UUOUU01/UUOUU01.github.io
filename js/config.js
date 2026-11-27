@@ -6,7 +6,7 @@ export async function loadJSON(path, fallback = null) {
     return await res.json();
   } catch (err) {
     console.warn(`[config] ${path} unavailable, using fallback`, err.message);
-    return fallback;
+    return fallback || [];
   }
 }
 
